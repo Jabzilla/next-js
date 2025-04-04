@@ -3,7 +3,8 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "start": "next start"
+    "start": "next start",
+    "prepare": "husky"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -17,5 +18,16 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  },
+  "devDependencies": {
+    "@types/node": "22.13.11",
+    "@types/react": "19.0.12",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.5.0",
+    "prettier": "3.5.3",
+    "typescript": "5.8.2"
   }
 }
