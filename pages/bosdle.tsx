@@ -13,6 +13,7 @@ import {
   GuessResults,
   Wrapper,
 } from "../components/bosdle/Bosdle.styled";
+import Layout from "../components/layout";
 
 export default function Bosdle() {
   const [answer, setAnswer] = useState(sample(WORDS));
@@ -23,15 +24,19 @@ export default function Bosdle() {
   });
 
   return (
-    <Wrapper>
-      <Header />
-      {guesses.includes(answer) && <HappyBanner numGuesses={guesses.length} />}
-      {guesses.length === NUM_OF_GUESSES_ALLOWED &&
-        !guesses.includes(answer) && <SadBanner answer={answer} />}
-      <GameWrapper>
-        <GuessResults>{renderGuesses}</GuessResults>
-        <Input setGuesses={setGuesses} />
-      </GameWrapper>
-    </Wrapper>
+    <Layout>
+      <Wrapper>
+        <Header />
+        {guesses.includes(answer) && (
+          <HappyBanner numGuesses={guesses.length} />
+        )}
+        {guesses.length === NUM_OF_GUESSES_ALLOWED &&
+          !guesses.includes(answer) && <SadBanner answer={answer} />}
+        <GameWrapper>
+          <GuessResults>{renderGuesses}</GuessResults>
+          <Input setGuesses={setGuesses} />
+        </GameWrapper>
+      </Wrapper>
+    </Layout>
   );
 }

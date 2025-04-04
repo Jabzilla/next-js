@@ -8,7 +8,13 @@ import StyledComponentsRegistry from "../lib/registry";
 const name = "Josh Bosman";
 export const siteTitle = "Josh Bosman Starter Blog";
 
-export default function Layout({ children, home }) {
+export default function Layout({
+  children,
+  home,
+}: {
+  children: React.ReactNode;
+  home?: boolean;
+}) {
   return (
     <div className={styles.container}>
       <Head>

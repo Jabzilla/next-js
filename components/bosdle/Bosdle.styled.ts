@@ -7,6 +7,7 @@ export const PageTitle = styled.h1`
   font-size: 2rem;
   line-height: var(--header-height);
   text-align: center;
+  margin-bottom: 2rem;
 
   @media (max-width: 25rem) {
     font-size: 1.25rem;
