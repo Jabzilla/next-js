@@ -1,4 +1,5 @@
 import { checkGuess, range } from "../../utils/bosdle";
+import bosdleStyles from "../../styles/Bosdle.module.css";
 
 export default function Guess({
   answer,
@@ -13,8 +14,8 @@ export default function Guess({
       val = value[i];
       cellStatus = checkGuess(value, answer)[i].status;
     }
-    return <span className={`cell ${cellStatus}`}>{val}</span>;
+    return <span className={bosdleStyles[`cell ${cellStatus}`]}>{val}</span>;
   });
 
-  return <p className="guess">{renderCells}</p>;
+  return <p className={bosdleStyles.guess}>{renderCells}</p>;
 }

@@ -7,6 +7,7 @@ import Header from "../components/bosdle/Header";
 import { WORDS } from "../data/bosdle";
 import HappyBanner from "../components/bosdle/HappyBanner";
 import SadBanner from "../components/bosdle/SadBanner";
+import bosdleStyles from "../styles/Bosdle.module.css";
 
 export default function Bosdle() {
   const [answer, setAnswer] = useState(sample(WORDS));
@@ -17,13 +18,13 @@ export default function Bosdle() {
   });
 
   return (
-    <div className="wrapper">
+    <div className={bosdleStyles.wrapper}>
       <Header />
       {guesses.includes(answer) && <HappyBanner numGuesses={guesses.length} />}
       {guesses.length === NUM_OF_GUESSES_ALLOWED &&
         !guesses.includes(answer) && <SadBanner answer={answer} />}
-      <div className="game-wrapper">
-        <div className="guess-results">{renderGuesses}</div>
+      <div className={bosdleStyles.gameWrapper}>
+        <div className={bosdleStyles.guessResults}>{renderGuesses}</div>
         <Input setGuesses={setGuesses} />
       </div>
     </div>
