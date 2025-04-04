@@ -1,3 +1,5 @@
+import { LetterResult, LetterStatus } from "../types/bosdle";
+
 export const range = (start: number, end?: number, step = 1) => {
   let output: Array<number> = [];
   if (typeof end === "undefined") {
@@ -9,13 +11,6 @@ export const range = (start: number, end?: number, step = 1) => {
   }
   return output;
 };
-
-type LetterStatus = "correct" | "incorrect" | "misplaced";
-
-interface LetterResult {
-  letter: string;
-  status: LetterStatus;
-}
 
 export function checkGuess(guess: string, answer: string) {
   // This constant is a placeholder that indicates we've successfully

@@ -1,4 +1,9 @@
 import { Dispatch, SetStateAction, useState } from "react";
+import {
+  GuessInputInput,
+  GuessInputLabel,
+  GuessInputWrapper,
+} from "./Bosdle.styled";
 
 export default function Input({
   setGuesses,
@@ -8,16 +13,15 @@ export default function Input({
   const [guess, setGuess] = useState("");
 
   return (
-    <form
-      className="guess-input-wrapper"
+    <GuessInputWrapper
       onSubmit={(e) => {
         e.preventDefault();
         setGuesses((guesses) => [...guesses, guess.toUpperCase()]);
         setGuess("");
       }}
     >
-      <label htmlFor="guess-input">Enter guess:</label>
-      <input
+      <GuessInputLabel htmlFor="guess-input">Enter guess:</GuessInputLabel>
+      <GuessInputInput
         required
         id="guess-input"
         type="text"
@@ -34,6 +38,6 @@ export default function Input({
         minLength={5}
         maxLength={5}
       />
-    </form>
+    </GuessInputWrapper>
   );
 }

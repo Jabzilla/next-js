@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
+import StyledComponentsRegistry from "../lib/registry";
 
 const name = "Josh Bosman";
 export const siteTitle = "Josh Bosman Starter Blog";
@@ -58,7 +59,9 @@ export default function Layout({ children, home }) {
           </>
         )}
       </header>
-      <main>{children}</main>
+      <main>
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+      </main>
       {!home && (
         <div className={styles.backToHome}>
           <Link href="/">← Back to home</Link>
